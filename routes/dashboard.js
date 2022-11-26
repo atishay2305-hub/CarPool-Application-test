@@ -1,0 +1,1 @@
+var router=require("express").Router();const pendingRide=require("../app_server/model/rideRequest");function checkLoggedIn(e,r,n){if(e.isAuthenticated())return n();r.redirect("/")}router.get("/",checkLoggedIn,(function(e,r){pendingRide.find({},(function(n,i){if(n)return console.log(n);r.render("dashboard",{user:e.user,pendingRides:i})}))})),module.exports=router;
